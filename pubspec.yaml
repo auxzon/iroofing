@@ -38,6 +38,11 @@ dependencies:
   get: ^4.6.6
   google_fonts: ^6.2.1
   photo_view: ^0.15.0
+  fluttertoast: ^8.2.8
+#  storage
+  hive: ^2.2.3
+#  file picker
+  file_picker: ^8.1.4
 
 dev_dependencies:
   flutter_test:

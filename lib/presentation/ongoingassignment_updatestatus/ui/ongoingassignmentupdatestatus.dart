@@ -54,7 +54,7 @@ class Ongoingassignmentupdatestatus extends StatelessWidget {
                   onPressed: () {
                     var controller = Get.put(BottomSheetcntroller());
                     controller.ongoingassignmentfun();
-                    Navi.to(Bottomsheet());
+                    Navi.to(Bottomsheet(),transition: Transition.leftToRight);
                   },
                   icon: Icon(Icons.arrow_back_ios),
                 ),

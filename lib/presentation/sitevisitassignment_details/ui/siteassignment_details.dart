@@ -8,6 +8,7 @@ import 'package:iroofing/common/bottomsheet/ui/BottomSheet.dart';
 import 'package:iroofing/common/common_textfield/common_textfield.dart';
 import 'package:iroofing/common/elevted_button/ElevatedButton.dart';
 import 'package:iroofing/common/text/textdata.dart';
+import 'package:iroofing/presentation/clientdetails_imagepreview/ui/clientdetailsimagescreen.dart';
 import 'package:iroofing/presentation/sitevisitassignment_details/controller/siteassignment_detailsController.dart';
 import '../../../common/bottomsheet/controller/bottomsheetcontroller.dart';
 import '../../../main.dart';
@@ -59,7 +60,7 @@ class SiteassignmentDetails extends StatelessWidget {
                       var controller = Get.put(BottomSheetcntroller());
                       controller
                           .sitevisitorassignmentfun(); // Set the profile observable to true
-                      Navi.to(Bottomsheet());
+                      Navi.to(Bottomsheet(),transition: Transition.leftToRight);
                     },
                     icon: Icon(Icons.arrow_back_ios),
                   ),
@@ -181,33 +182,22 @@ class SiteassignmentDetails extends StatelessWidget {
               SizedBox(
                 height: MyApp.height * .01,
               ),
-              Container(
-                decoration: BoxDecoration(
-                    color: ColorData.whitecolor,
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(color: ColorData.textfieldunfocuscolor)),
-                child: ListTile(
-                  leading: Icon(
-                    Icons.car_repair_outlined,
-                    color: ColorData.maincolor,
+              GestureDetector(
+                onTap: () {
+                  Navi.toOff(Clientdetailsimagescreen());
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: ColorData.whitecolor,
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(color: ColorData.textfieldunfocuscolor)),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.image,
+                      color: ColorData.maincolor,
+                    ),
+                    title: TextThemedel(text: "Images"),
                   ),
-                  title: TextThemedel(text: "Car Porch"),
-                ),
-              ),
-              SizedBox(
-                height: MyApp.height * .01,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    color: ColorData.whitecolor,
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(color: ColorData.textfieldunfocuscolor)),
-                child: ListTile(
-                  leading: Icon(
-                    Icons.image,
-                    color: ColorData.maincolor,
-                  ),
-                  title: TextThemedel(text: "Images"),
                 ),
               ),
               SizedBox(
@@ -546,7 +536,7 @@ class SiteassignmentDetails extends StatelessWidget {
                               CrossAxisAlignment.center,
                               children: [
                                 TextThemedel(
-                                  text: "Total_Rate",
+                                  text: "Total Rate",
                                   color: ColorData.textblackcolor,
                                   fontWeight: FontWeight.bold,
                                 ),

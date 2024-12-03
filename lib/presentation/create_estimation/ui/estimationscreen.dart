@@ -69,7 +69,7 @@ class Estimationscreen extends StatelessWidget {
                     var controller = Get.put(BottomSheetcntroller());
                     controller
                         .sitevisitorfun(); // Set the profile observable to true
-                    Navi.to(Bottomsheet());
+                    Navi.to(Bottomsheet(),transition: Transition.leftToRight);
                   },
                   icon: Icon(Icons.arrow_back_ios),
                 ),
@@ -472,7 +472,7 @@ class Estimationscreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               TextThemedel(
-                                text: "Total_Rate",
+                                text: "Total Rate",
                                 color: ColorData.textblackcolor,
                                 fontWeight: FontWeight.bold,
                               ),

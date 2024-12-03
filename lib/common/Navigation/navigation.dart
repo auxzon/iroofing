@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class Navi {
   /// Navigate to the specified screen and replace the current screen.
-  static void toOff(Widget page, {Transition? transition}) {
+  static void toOff(Widget page, {Transition? transition,}) {
     Get.off(
       page,
       transition: transition ?? Transition.rightToLeft,

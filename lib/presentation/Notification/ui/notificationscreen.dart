@@ -46,7 +46,7 @@ class NotificationScreen extends StatelessWidget {
                   var controller = Get.put(BottomSheetcntroller());
                   controller
                       .sitevisitorfun();
-                  Navi.to(Bottomsheet());
+                  Navi.to(Bottomsheet(),transition: Transition.leftToRight);
                 },
                 icon: Icon(Icons.arrow_back_ios),
               ),

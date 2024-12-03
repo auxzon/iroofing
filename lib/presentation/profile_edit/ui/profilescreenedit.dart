@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:iroofing/common/alertbox/alerbox1.dart';
 import 'package:iroofing/common/bottomsheet/ui/BottomSheet.dart';
+import 'package:iroofing/common/common_textbutton/commontext_button.dart';
 import 'package:iroofing/common/common_textfield/common_textfield.dart';
 import 'package:iroofing/common/elevted_button/ElevatedButton.dart';
 import 'package:iroofing/common/text/textdata.dart';
@@ -32,7 +35,7 @@ class ProfilescreenEdit extends StatelessWidget {
           height: MyApp.height * .05,
         ),
         actions: [
-              IconButton(
+          IconButton(
               onPressed: () {
                 Navi.toOff(NotificationScreen());
               },
@@ -57,7 +60,8 @@ class ProfilescreenEdit extends StatelessWidget {
                       var controller = Get.put(BottomSheetcntroller());
                       controller
                           .profilefun(); // Set the profile observable to true
-                      Navi.to(Bottomsheet());
+                      Navi.to(Bottomsheet(),
+                          transition: Transition.leftToRight);
                     },
                     icon: Icon(Icons.arrow_back_ios),
                   ),
@@ -65,8 +69,8 @@ class ProfilescreenEdit extends StatelessWidget {
               ),
               Material(
                 elevation: 10,
+                borderRadius: BorderRadius.circular(15),
                 child: Container(
-                  height: MyApp.height * .75,
                   decoration: BoxDecoration(
                       color: ColorData.whitecolor,
                       borderRadius: BorderRadius.circular(10)),
@@ -86,8 +90,10 @@ class ProfilescreenEdit extends StatelessWidget {
                             ),
                             elevation: 5, // Softer shadow
                             child: CircleAvatar(
-                              radius: MyApp.width * 0.15, // Simplified radius calculation
-                              backgroundImage: AssetImage('assets/profileimg.png'),
+                              radius: MyApp.width * 0.15,
+                              // Simplified radius calculation
+                              backgroundImage:
+                                  AssetImage('assets/profileimg.png'),
                             ),
                           ),
                           // Positioned Edit Icon
@@ -100,9 +106,11 @@ class ProfilescreenEdit extends StatelessWidget {
                               },
                               child: Material(
                                 shape: CircleBorder(),
-                                color: ColorData.maincolor, // Background color for edit button
+                                color: ColorData.maincolor,
+                                // Background color for edit button
                                 child: Padding(
-                                  padding: const EdgeInsets.all(4.0), // Add padding around the icon
+                                  padding: const EdgeInsets.all(4.0),
+                                  // Add padding around the icon
                                   child: Icon(
                                     Icons.edit,
                                     color: ColorData.whitecolor,
@@ -117,140 +125,10 @@ class ProfilescreenEdit extends StatelessWidget {
                       SizedBox(
                         height: MyApp.height * .05,
                       ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  TextThemedel(
-                                    text: "name       ",
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 15,
-                                  ),
-                                  Expanded(
-                                    child: CommonTextField(
-                                      useUnderlineBorder: true,
-                                      controller: name,
-                                      contentpadding: 10,
-                                      border: 5,
-                                      enableborder: 5,
-                                      focusborder: 5,
-                                      labelstyle: TextStyle(
-                                          color:
-                                              ColorData.textfieldunfocuscolor),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: MyApp.height * .02,
-                              ),
-                              Row(
-                                children: [
-                                  TextThemedel(
-                                    text: "Email id   ",
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 15,
-                                  ),
-                                  Expanded(
-                                    child: CommonTextField(
-                                      useUnderlineBorder: true,
-                                      controller: email,
-                                      contentpadding: 10,
-                                      border: 5,
-                                      enableborder: 5,
-                                      focusborder: 5,
-                                      labelstyle: TextStyle(
-                                          color:
-                                              ColorData.textfieldunfocuscolor),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: MyApp.height * .02,
-                              ),
-                              Row(
-                                children: [
-                                  TextThemedel(
-                                    text: "Phone no  ",
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 15,
-                                  ),
-                                  Expanded(
-                                    child: CommonTextField(
-                                      useUnderlineBorder: true,
-                                      controller: phone,
-                                      contentpadding: 10,
-                                      border: 5,
-                                      enableborder: 5,
-                                      focusborder: 5,
-                                      labelstyle: TextStyle(
-                                          color: ColorData.textfieldunfocuscolor),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: MyApp.height * .02,
-                              ),
-                              Row(
-                                children: [
-                                  TextThemedel(
-                                    text: "Password  ",
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 15,
-                                  ),
-                                  Expanded(
-                                    child: CommonTextField(
-                                      useUnderlineBorder: true,
-                                      controller: pass,
-                                      contentpadding: 10,
-                                      border: 5,
-                                      enableborder: 5,
-                                      focusborder: 5,
-                                      labelstyle: TextStyle(
-                                          color: ColorData.textfieldunfocuscolor),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Spacer(),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  CommonMaterialButton(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 30),
-                                    child: TextThemedel(
-                                      text: "Save",
-                                      color: ColorData.whitecolor,
-                                    ),
-                                    color: ColorData.textbluecolor,
-                                    onPressed: () {
-                                      Navi.toOff(Bottomsheet());
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: MyApp.width * .1,
-                                  ),
-                                  CommonMaterialButton(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 30),
-                                    color: ColorData.cancelbuttoncolor,
-                                    child: TextThemedel(
-                                      text: "Cancel",
-                                      color: ColorData.whitecolor,
-                                    ),
-                                    onPressed: () {},
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
+                      ListTile(
+                        leading: Image.asset("assets/profilecover.jpg"),
+                        title: TextThemedel(text: "cover image"),
+                        trailing: IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
                       ),
                       SizedBox(
                         height: MyApp.height * .05,
@@ -258,6 +136,211 @@ class ProfilescreenEdit extends StatelessWidget {
                     ],
                   ),
                 ),
+              ),
+              SizedBox(
+                height: MyApp.height * .02,
+              ),
+              Material(
+                color: ColorData.whitecolor,
+                elevation: 10,
+                borderRadius: BorderRadius.circular(5),
+                child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: MyApp.height * .02,
+                        ),
+                        Row(
+                          children: [
+                            TextThemedel(
+                              text: "name       ",
+                              fontWeight: FontWeight.w300,
+                              fontSize: 15,
+                            ),
+                          ],
+                        ),
+                        CommonTextField(
+                          controller: name,
+                          contentpadding: 10,
+                          border: 5,
+                          enableborder: 5,
+                          focusborder: 5,
+                          labelstyle: TextStyle(
+                              color: ColorData.textfieldunfocuscolor),
+                        ),
+                        SizedBox(
+                          height: MyApp.height * .02,
+                        ),
+                        Row(
+                          children: [
+                            TextThemedel(
+                              text: "Email id   ",
+                              fontWeight: FontWeight.w300,
+                              fontSize: 15,
+                            ),
+                          ],
+                        ),
+                        CommonTextField(
+                          controller: email,
+                          contentpadding: 10,
+                          border: 5,
+                          enableborder: 5,
+                          focusborder: 5,
+                          labelstyle: TextStyle(
+                              color: ColorData.textfieldunfocuscolor),
+                        ),
+                        SizedBox(
+                          height: MyApp.height * .02,
+                        ),
+                        Row(
+                          children: [
+                            TextThemedel(
+                              text: "Phone no  ",
+                              fontWeight: FontWeight.w300,
+                              fontSize: 15,
+                            ),
+                          ],
+                        ),
+                        CommonTextField(
+                          controller: phone,
+                          contentpadding: 10,
+                          border: 5,
+                          enableborder: 5,
+                          focusborder: 5,
+                          labelstyle: TextStyle(
+                              color: ColorData.textfieldunfocuscolor),
+                        ),
+                        SizedBox(
+                          height: MyApp.height * .02,
+                        ),
+                        Row(
+                          children: [
+                            TextThemedel(
+                              text: "Password  ",
+                              fontWeight: FontWeight.w300,
+                              fontSize: 15,
+                            ),
+                          ],
+                        ),
+                        CommonTextField(
+                          controller: pass,
+                          contentpadding: 10,
+                          border: 5,
+                          enableborder: 5,
+                          focusborder: 5,
+                          labelstyle: TextStyle(
+                              color: ColorData.textfieldunfocuscolor),
+                        ),
+                        SizedBox(
+                          height: MyApp.height * .02,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CommonMaterialButton(
+                              padding:
+                              EdgeInsets.symmetric(horizontal: 30),
+                              child: TextThemedel(
+                                text: "Save",
+                                color: ColorData.whitecolor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                              color: ColorData.maincolor,
+                              onPressed: () {
+                                Navi.toOff(Bottomsheet());
+                                Fluttertoast.showToast(
+                                  msg: "Saved",
+                                  toastLength:
+                                  Toast.LENGTH_SHORT,
+                                  gravity:
+                                  ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                );
+                                // showDialog(
+                                //   context: context,
+                                //   builder: (context) => CustomAlertBox(
+                                //       title: "Alert",
+                                //       message: "Save your changes ?",
+                                //       button: [
+                                //         CommonTextButton(
+                                //           onPressed: () {
+                                //             Get.back();
+                                //           },
+                                //           icon: Icon(Icons.close),
+                                //           child: TextThemedel(text: "no"),
+                                //         ),
+                                //         CommonTextButton(
+                                //           onPressed: () {
+                                //             Navi.toOff(Bottomsheet());
+                                //             Fluttertoast.showToast(
+                                //               msg: "Saved",
+                                //               toastLength:
+                                //               Toast.LENGTH_SHORT,
+                                //               gravity:
+                                //               ToastGravity.BOTTOM,
+                                //               timeInSecForIosWeb: 1,
+                                //             );
+                                //           },
+                                //           icon: Icon(Icons.check),
+                                //           child:
+                                //           TextThemedel(text: "yes"),
+                                //         ),
+                                //       ]),
+                                // );
+                              },
+                              elevation: 20,
+                            ),
+                            SizedBox(
+                              width: MyApp.width * .1,
+                            ),
+                            CommonMaterialButton(
+                              elevation: 20,
+                              padding:
+                              EdgeInsets.symmetric(horizontal: 30),
+                              color: ColorData.whitecolor,
+                              child: TextThemedel(
+                                text: "Cancel",
+                                color: ColorData.maincolor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => CustomAlertBox(
+                                    title: "Alert",
+                                    message:
+                                    "Do you want to cancel edit?",
+                                    button: [
+                                      CommonTextButton(
+                                        onPressed: () {
+                                          Get.back();
+                                        },
+                                        icon: Icon(Icons.close),
+                                        child: TextThemedel(text: "no"),
+                                      ),
+                                      CommonTextButton(
+                                        onPressed: () {
+                                          Get.back();
+                                        },
+                                        icon: Icon(Icons.check),
+                                        child: TextThemedel(text: "yes"),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: MyApp.height * .05,
+                        ),
+                      ],
+                    ),
+                  ),
               ),
             ],
           ),

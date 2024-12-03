@@ -7,6 +7,7 @@ import 'package:iroofing/main.dart';
 import 'package:iroofing/presentation/profile_edit/ui/profilescreenedit.dart';
 import 'package:iroofing/presentation/splashscreen/ui/SplashScreen.dart';
 
+import '../../splashscreen/controller/splashscreencontroller.dart';
 import '../controller/profilecontroller.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -32,8 +33,8 @@ class ProfileScreen extends StatelessWidget {
                   height: MyApp.height * .2,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage("assets/logo.png"),
-                          fit: BoxFit.contain)),
+                          image: AssetImage("assets/profilecover.jpg"),
+                          fit: BoxFit.cover)),
                 ),
                 Positioned(
                   right: 0,
@@ -43,7 +44,7 @@ class ProfileScreen extends StatelessWidget {
                         Navi.toOff(ProfilescreenEdit());
                         // Get.off(() => ProfilescreenEdit());
                       },
-                      icon: Image.asset("assets/prifileedit.png")),
+                      icon: Image.asset("assets/prifileedit.png",color: ColorData.whitecolor,)),
                 ),
                 Positioned(
                   bottom: 0,
@@ -129,6 +130,7 @@ class ProfileScreen extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
+                Get.delete<SplashscreenController>();
                 Navi.toOff(Splashscreen());
               },
               child: Container(

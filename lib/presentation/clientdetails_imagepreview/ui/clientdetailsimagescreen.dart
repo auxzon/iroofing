@@ -10,8 +10,8 @@ import '../../../common/bottomsheet/ui/BottomSheet.dart';
 import '../../../main.dart';
 import '../../Notification/ui/notificationscreen.dart';
 
-class Createestimateimagescreen extends StatelessWidget {
-  const Createestimateimagescreen({super.key, this.image, this.imagename});
+class Clientdetailsimagescreen extends StatelessWidget {
+  const Clientdetailsimagescreen({super.key, this.image, this.imagename});
 
   final String? image;
   final String? imagename;
