@@ -6,12 +6,11 @@ import 'package:iroofing/common/Color/Colordata.dart';
 import 'package:iroofing/common/Navigation/navigation.dart';
 import 'package:iroofing/common/elevted_button/ElevatedButton.dart';
 import 'package:iroofing/common/text/textdata.dart';
-import 'package:iroofing/core/ongoingassignmentWidgets/clientdetailssec.dart';
 import 'package:iroofing/presentation/ongoingassignment/controller/ongoingassignment_controller.dart';
 import 'package:iroofing/presentation/ongoingassignment_updatestatus/ui/ongoingassignmentupdatestatus.dart';
-
 import '../../../common/common_textfield/common_textfield.dart';
-import '../../../core/ongoingassignmentWidgets/card.dart';
+import '../../../core/ongoingassignment/ongoingassignmentWidgets/card.dart';
+import '../../../core/ongoingassignment/ongoingassignmentWidgets/clientdetailssec.dart';
 import '../../../main.dart';
 
 class Ongoingassignmentscreen extends StatelessWidget {

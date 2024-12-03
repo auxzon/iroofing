@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../common/Color/Colordata.dart';
-import '../../common/text/textdata.dart';
-import '../../main.dart';
-import '../../presentation/ongoingassignment/controller/ongoingassignment_controller.dart';
+import '../../../common/Color/Colordata.dart';
+import '../../../common/text/textdata.dart';
+import '../../../main.dart';
+import '../../../presentation/ongoingassignment/controller/ongoingassignment_controller.dart';
 
 class ClientInfoCard extends StatelessWidget {
   final String title;

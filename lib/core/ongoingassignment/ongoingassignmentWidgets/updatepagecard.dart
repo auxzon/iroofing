@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../common/Color/Colordata.dart';
-import '../../common/text/textdata.dart';
+import '../../../common/Color/Colordata.dart';
+import '../../../common/text/textdata.dart';
 import '../ongoingassignmentWidgetsController/updatepagecardcontroller.dart';
 
 class Updatepagecard extends StatelessWidget {

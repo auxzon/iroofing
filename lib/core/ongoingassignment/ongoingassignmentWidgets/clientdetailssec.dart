@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iroofing/common/Color/Colordata.dart';
 import 'package:iroofing/main.dart';
-
-import '../../common/text/textdata.dart';
-import '../../presentation/ongoingassignment/controller/ongoingassignment_controller.dart';
+import '../../../common/text/textdata.dart';
+import '../../../presentation/ongoingassignment/controller/ongoingassignment_controller.dart';
 
 class CustomRowWidget extends StatelessWidget {
   final OngoingScrrenController controller;
