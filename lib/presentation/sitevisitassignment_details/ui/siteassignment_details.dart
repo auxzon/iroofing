@@ -267,6 +267,7 @@ class SiteassignmentDetails extends StatelessWidget {
                                           ),
                                           child: DropdownButtonHideUnderline(
                                             child: DropdownButton<int>(
+                                              dropdownColor:ColorData.whitecolor,
                                               // Hint text displayed when no value is selected
                                               hint: TextThemedel(
                                                 text: "Select Roof Preference",
@@ -312,23 +313,16 @@ class SiteassignmentDetails extends StatelessWidget {
                                           : controller.selectedIndex.value + 1,
                                       itemBuilder: (context, index) => Obx(
                                         () => Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
                                           children: [
-                                            Container(
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: MyApp.width * .2,
-                                                  vertical: MyApp.height * .005),
-                                              decoration: BoxDecoration(
-                                                  color: ColorData.bgcolor,
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
-                                                  border: Border.all(
-                                                      color: ColorData
-                                                          .textfieldunfocuscolor)),
+                                            Align(
+                                              alignment:Alignment.centerLeft,
                                               child: TextThemedel(
                                                 text: "Measurement",
-                                                color: ColorData.buttontextcolor,
+                                                fontWeight: FontWeight.bold,
+                                                textDecorationthickness: 3,
+                                                fontSize: 20,
+                                                color:
+                                                ColorData.buttontextcolor,
                                               ),
                                             ),
                                             SizedBox(height: MyApp.height * .02),
@@ -337,7 +331,7 @@ class SiteassignmentDetails extends StatelessWidget {
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 TextThemedel(
-                                                  text: "Span",
+                                                  text: "Span    ",
                                                   color: ColorData.textblackcolor,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -345,6 +339,7 @@ class SiteassignmentDetails extends StatelessWidget {
                                                 Expanded(
                                                     child: SizedBox(
                                                   child: CommonTextField(
+                                                    fillcolor: ColorData.bgcolor,
                                                     maxLines: null,
                                                     keyboardType:
                                                         TextInputType.number,
@@ -357,9 +352,6 @@ class SiteassignmentDetails extends StatelessWidget {
                                                   ),
                                                       height: MyApp.height*.05,
                                                     )),
-                                                SizedBox(
-                                                  width: MyApp.width * .2,
-                                                ),
                                               ],
                                             ),
                                             SizedBox(height: MyApp.height * .01),
@@ -376,6 +368,7 @@ class SiteassignmentDetails extends StatelessWidget {
                                                   child: SizedBox(
                                                     height: MyApp.height*.05,
                                                     child: CommonTextField(
+                                                      fillcolor: ColorData.bgcolor,
                                                       keyboardType: TextInputType.number,
                                                       readOnly: controller.edit.value,
                                                       controller: length,
@@ -385,9 +378,6 @@ class SiteassignmentDetails extends StatelessWidget {
                                                       hintstyle: TextStyle(fontSize: 14),
                                                     ),
                                                   ),
-                                                ),
-                                                SizedBox(
-                                                  width: MyApp.width * .2,
                                                 ),
                                               ],
                                             ),
@@ -405,6 +395,7 @@ class SiteassignmentDetails extends StatelessWidget {
                                                 Expanded(
                                                     child: SizedBox(
                                                   child: CommonTextField(
+                                                    fillcolor: ColorData.bgcolor,
                                                     keyboardType:
                                                         TextInputType.number,
                                                     controller: height,
@@ -416,9 +407,6 @@ class SiteassignmentDetails extends StatelessWidget {
                                                   ),
                                                       height: MyApp.height*.05,
                                                     )),
-                                                SizedBox(
-                                                  width: MyApp.width * .2,
-                                                ),
                                               ],
                                             ),
                                             SizedBox(height: MyApp.height * .01),

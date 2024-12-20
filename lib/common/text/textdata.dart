@@ -13,6 +13,9 @@ class TextThemedel extends StatelessWidget {
     this.textAlign,
     this.decoration,
     this.textoverflow,
+    this.textDecorationStyle,
+    this.textDecorationthickness,
+    this.textDecorationcolor,
   });
 
   final String text;
@@ -23,6 +26,9 @@ class TextThemedel extends StatelessWidget {
   final TextAlign? textAlign;
   final TextDecoration? decoration;
   final TextOverflow? textoverflow;
+  final TextDecorationStyle? textDecorationStyle;
+  final double? textDecorationthickness;
+  final Color? textDecorationcolor;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +40,10 @@ class TextThemedel extends StatelessWidget {
         fontSize: fontSize,
         color: color,
         fontWeight: fontWeight,
+        decorationStyle: textDecorationStyle,
         letterSpacing: letterSpacing,
+        decorationColor: textDecorationcolor,
+        decorationThickness: textDecorationthickness,
         decoration: decoration,
       ),
     );

@@ -171,6 +171,7 @@ class ProfilescreenEdit extends StatelessWidget {
                           ),
                           CommonTextField(
                             controller: name,
+                            fillcolor: ColorData.bgcolor,
                             contentpadding: 10,
                             border: 5,
                             enableborder: 5,
@@ -192,6 +193,7 @@ class ProfilescreenEdit extends StatelessWidget {
                           ),
                           CommonTextField(
                             controller: email,
+                            fillcolor: ColorData.bgcolor,
                             contentpadding: 10,
                             border: 5,
                             enableborder: 5,
@@ -213,6 +215,7 @@ class ProfilescreenEdit extends StatelessWidget {
                           ),
                           CommonTextField(
                             controller: phone,
+                            fillcolor: ColorData.bgcolor,
                             contentpadding: 10,
                             border: 5,
                             enableborder: 5,
@@ -234,6 +237,7 @@ class ProfilescreenEdit extends StatelessWidget {
                           ),
                           CommonTextField(
                             controller: pass,
+                            fillcolor: ColorData.bgcolor,
                             contentpadding: 10,
                             border: 5,
                             enableborder: 5,

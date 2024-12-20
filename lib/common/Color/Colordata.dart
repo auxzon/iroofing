@@ -4,7 +4,7 @@ class ColorData {
   static final maincolor = Color(0xFF2D2693);
   static final whitecolor = Color(0xFFFFFFFF);
   static final bgcolor = Color(0xFFF6F9FF);
-  static final textfieldunfocuscolor = Color(0xFFABABAB);
+  static final textfieldunfocuscolor = Color(0xFFE0E0E0);
   static final textfieldfocuscolor = Color(0xFF4E50C9);
   static final buttoncolor = Color(0xFFFFFFFF);
   static final buttontextcolor = Color(0xFF3C3EC3);

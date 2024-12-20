@@ -103,6 +103,7 @@ class Estimationscreen extends StatelessWidget {
                 height: MyApp.height * .008,
               ),
               CommonTextField(
+                useUnderlineBorder: true,
                 focusborder: 5,
                 border: 5,
                 enableborder: 5,
@@ -120,6 +121,7 @@ class Estimationscreen extends StatelessWidget {
                 height: MyApp.height * .01,
               ),
               CommonTextField(
+                useUnderlineBorder: true,
                 controller: roofmodel,
                 focusborder: 5,
                 border: 5,
@@ -137,6 +139,7 @@ class Estimationscreen extends StatelessWidget {
                 height: MyApp.height * .01,
               ),
               CommonTextField(
+                useUnderlineBorder: true,
                 controller: roofpreference,
                 focusborder: 5,
                 border: 5,
@@ -226,6 +229,7 @@ class Estimationscreen extends StatelessWidget {
                                         ),
                                         child: DropdownButtonHideUnderline(
                                           child: DropdownButton<int>(
+                                            dropdownColor: ColorData.whitecolor,
                                             // Hint text displayed when no value is selected
                                             hint: TextThemedel(
                                               text: "Select Parking Type",
@@ -272,23 +276,13 @@ class Estimationscreen extends StatelessWidget {
                                             children: [
                                               Align(
                                                 alignment:Alignment.centerLeft,
-                                                child: Container(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: MyApp.width * .2,
-                                                      vertical:
-                                                          MyApp.height * .005),
-                                                  decoration: BoxDecoration(
-                                                      color: ColorData.bgcolor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(5),
-                                                      border: Border.all(
-                                                          color: ColorData
-                                                              .textfieldunfocuscolor)),
-                                                  child: TextThemedel(
-                                                    text: "Measurement",
-                                                    color:
-                                                        ColorData.buttontextcolor,
-                                                  ),
+                                                child: TextThemedel(
+                                                  text: "Measurement",
+                                                  fontWeight: FontWeight.bold,
+                                                  textDecorationthickness: 3,
+                                                  fontSize: 20,
+                                                  color:
+                                                      ColorData.buttontextcolor,
                                                 ),
                                               ),
                                               SizedBox(
@@ -296,7 +290,7 @@ class Estimationscreen extends StatelessWidget {
                                               Row(
                                                 children: [
                                                   TextThemedel(
-                                                    text: "Span  ",
+                                                    text: "Span   ",
                                                     color:
                                                         ColorData.textblackcolor,
                                                     fontWeight: FontWeight.bold,
@@ -305,8 +299,7 @@ class Estimationscreen extends StatelessWidget {
                                                   Expanded(
                                                       child: SizedBox(
                                                     child: CommonTextField(
-                                                      useUnderlineBorder: true,
-                                                      maxLines: null,
+                                                      fillcolor: ColorData.bgcolor,
                                                       keyboardType:
                                                           TextInputType.number,
                                                       controller: span,
@@ -335,7 +328,7 @@ class Estimationscreen extends StatelessWidget {
                                                     child: SizedBox(
                                                       height: MyApp.height * .05,
                                                       child: CommonTextField(
-                                                        useUnderlineBorder: true,
+                                                        fillcolor: ColorData.bgcolor,
                                                         keyboardType:
                                                             TextInputType.number,
                                                         controller: length,
@@ -365,7 +358,7 @@ class Estimationscreen extends StatelessWidget {
                                                   Expanded(
                                                       child: SizedBox(
                                                     child: CommonTextField(
-                                                      useUnderlineBorder: true,
+                                                      fillcolor: ColorData.bgcolor,
                                                       keyboardType:
                                                           TextInputType.number,
                                                       controller: height,
