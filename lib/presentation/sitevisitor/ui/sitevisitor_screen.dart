@@ -7,6 +7,7 @@ import 'package:iroofing/common/elevted_button/ElevatedButton.dart';
 import 'package:iroofing/common/text/textdata.dart';
 import 'package:iroofing/main.dart';
 import 'package:iroofing/presentation/create_estimation/ui/estimationscreen.dart';
+import 'package:iroofing/presentation/sitevisitassignment_details/ui/siteassignment_details.dart';
 import 'package:iroofing/presentation/sitevisitor/controller/sitevisitor_controller.dart';
 
 import '../../../common/bottomsheet/controller/bottomsheetcontroller.dart';
@@ -264,7 +265,9 @@ class SitevisitorScreen extends StatelessWidget {
                         //   ),
                         // ),
                         CommonMaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navi.offAll(SiteassignmentDetails(tohome: true,));
+                          },
                           width: MyApp.width * .3,
                           elevation: 10,
                           color: ColorData.maincolor,

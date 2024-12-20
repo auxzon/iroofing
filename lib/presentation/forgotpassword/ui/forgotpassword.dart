@@ -18,115 +18,121 @@ class Forgotpassword extends StatelessWidget {
   Widget build(BuildContext context) {
     var controller = Get.put(ForgotpasswordController());
     var email = TextEditingController();
-    return Scaffold(
-      backgroundColor: ColorData.maincolor,
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset("assets/logo.png"),
-              SizedBox(
-                height: MyApp.height * .02,
-              ),
-              Container(
-                height: MyApp.height * .45,
-                width: MyApp.width,
-                decoration: BoxDecoration(
-                  color: ColorData.whitecolor,
-                  borderRadius: BorderRadius.circular(15),
+    return PopScope(
+      onPopInvoked: (didPop) {
+        Navi.toOff(Loginpage(),transition: Transition.leftToRight);
+      },
+      canPop: false,
+      child: Scaffold(
+        backgroundColor: ColorData.maincolor,
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset("assets/logo.png"),
+                SizedBox(
+                  height: MyApp.height * .02,
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: MyApp.height * .03,
-                    ),
-                    Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            TextThemedel(
-                              text: "Forgot Password ?",
-                              color: ColorData.maincolor,
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            TextThemedel(
-                              text: "Enter your email id",
-                              color: ColorData.textfieldunfocuscolor,
-                              fontSize: 10,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: MyApp.height * .02,
-                    ),
-                    Row(
-                      children: [
-                        TextThemedel(
-                          text: "Email ID",
-                          color: ColorData.textblackcolor,
+                Container(
+                  height: MyApp.height * .45,
+                  width: MyApp.width,
+                  decoration: BoxDecoration(
+                    color: ColorData.whitecolor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: MyApp.height * .03,
+                      ),
+                      Row(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              TextThemedel(
+                                text: "Forgot Password ?",
+                                color: ColorData.maincolor,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              TextThemedel(
+                                text: "Enter your email id",
+                                color: ColorData.textfieldunfocuscolor,
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: MyApp.height * .02,
+                      ),
+                      Row(
+                        children: [
+                          TextThemedel(
+                            text: "Email ID",
+                            color: ColorData.textblackcolor,
+                            fontSize: 20,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: MyApp.height * .008,
+                      ),
+                      CommonTextField(
+                        controller: email,
+                        keyboardType: TextInputType.emailAddress,
+                      ),
+                      SizedBox(
+                        height: MyApp.height * .04,
+                      ),
+                      CommonMaterialButton(
+                        width: double.infinity,
+                        height: MyApp.height * .06,
+                        borderRadius: BorderRadius.circular(5),
+                        onPressed: () {
+                          Navi.toOff(EnterotpScreen());
+                        },
+                        color: ColorData.maincolor,
+                        elevation: 5,
+                        child: TextThemedel(
+                          text: "Send OTP",
+                          color: ColorData.whitecolor,
                           fontSize: 20,
                         ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: MyApp.height * .008,
-                    ),
-                    CommonTextField(
-                      controller: email,
-                      keyboardType: TextInputType.emailAddress,
-                    ),
-                    SizedBox(
-                      height: MyApp.height * .04,
-                    ),
-                    CommonMaterialButton(
-                      width: double.infinity,
-                      height: MyApp.height * .06,
-                      borderRadius: BorderRadius.circular(5),
-                      onPressed: () {
-                        Navi.toOff(EnterotpScreen());
-                      },
-                      color: ColorData.maincolor,
-                      elevation: 5,
-                      child: TextThemedel(
-                        text: "Send OTP",
-                        color: ColorData.whitecolor,
-                        fontSize: 20,
                       ),
-                    ),
-                    SizedBox(
-                      height: MyApp.height * .03,
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        TextThemedel(
-                          text: "Remember Password ? ",
-                          color: ColorData.maincolor,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navi.toOff(Loginpage());
-                          },
-                          child: TextThemedel(
-                            text: "Login",
+                      SizedBox(
+                        height: MyApp.height * .03,
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          TextThemedel(
+                            text: "Remember Password ? ",
                             color: ColorData.maincolor,
-                            fontWeight: FontWeight.bold,
                           ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              )
-            ],
+                          GestureDetector(
+                            onTap: () {
+                              Navi.toOff(Loginpage());
+                            },
+                            child: TextThemedel(
+                              text: "Login",
+                              color: ColorData.maincolor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

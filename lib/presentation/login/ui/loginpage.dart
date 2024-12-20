@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:iroofing/common/Color/Colordata.dart';
@@ -19,145 +20,151 @@ class Loginpage extends StatelessWidget {
     var controller = Get.put(LoginController());
     var email = TextEditingController();
     var password = TextEditingController();
-    return Scaffold(
-      backgroundColor: ColorData.maincolor,
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset("assets/logo.png"),
-              SizedBox(
-                height: MyApp.height * .02,
-              ),
-              Container(
-                height: MyApp.height * .5,
-                width: MyApp.width,
-                decoration: BoxDecoration(
-                  color: ColorData.whitecolor,
-                  borderRadius: BorderRadius.circular(15),
+    return PopScope(
+      onPopInvoked: (didPop) {
+        SystemNavigator.pop();
+      },
+      canPop: true,
+      child: Scaffold(
+        backgroundColor: ColorData.maincolor,
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset("assets/logo.png"),
+                SizedBox(
+                  height: MyApp.height * .02,
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: MyApp.height * .02,
-                    ),
-                    Row(
-                      children: [
-                        TextThemedel(
-                          text: "Login",
-                          color: ColorData.maincolor,
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: MyApp.height * .002,
-                    ),
-                    Row(
-                      children: [
-                        TextThemedel(
-                          text: "Email ID",
-                          color: ColorData.textblackcolor,
-                          fontSize: 20,
-                        ),
-                      ],
-                    ),
-                    CommonTextField(
-                      controller: email,
-                      keyboardType: TextInputType.emailAddress,
-                    ),
-                    Row(
-                      children: [
-                        TextThemedel(
-                          text: "Password",
-                          color: ColorData.textblackcolor,
-                          fontSize: 20,
-                        ),
-                      ],
-                    ),
-                    Obx(
-                      () => CommonTextField(
-                        controller: password,
-                        isPassword: !controller.showpassword.value,
-                        suffixIcon: IconButton(
-                            onPressed: () {
-                              controller.togglepass();
-                            },
-                            icon: Icon(controller.showpassword.value
-                                ? Icons.visibility_off
-                                : Icons.visibility)),
+                Container(
+                  height: MyApp.height * .5,
+                  width: MyApp.width,
+                  decoration: BoxDecoration(
+                    color: ColorData.whitecolor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: MyApp.height * .02,
                       ),
-                    ),
-                    SizedBox(
-                      height: MyApp.height * .002,
-                    ),
-                    Row(
-                      children: [
-                        Obx(
-                          () => Checkbox(
-                            activeColor: ColorData.maincolor,
-                            value: controller.reemberme.value,
-                            onChanged: (value) {
-                              controller.togglerememberme();
-                            },
-                          ),
-                        ),
-                        TextThemedel(
-                          text: "Remember me",
-                          color: ColorData.maincolor,
-                        )
-                      ],
-                    ),
-                    CommonMaterialButton(
-                      width: double.infinity,
-                      height: MyApp.height * .06,
-                      borderRadius: BorderRadius.circular(5),
-                      onPressed: () {
-                        Fluttertoast.showToast(
-                            msg: "Login Success",
-                            toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.BOTTOM,
-                        );
-                        Navi.toOff(Bottomsheet());
-                      },
-                      color: ColorData.maincolor,
-                      elevation: 5,
-                      child: TextThemedel(
-                        text: "Login",
-                        color: ColorData.whitecolor,
-                        fontSize: 20,
-                      ),
-                    ),
-                    SizedBox(
-                      height: MyApp.height * .03,
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        TextThemedel(
-                          text: "Forgot Password ? ",
-                          color: ColorData.maincolor,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navi.toOff(Forgotpassword());
-                          },
-                          child: TextThemedel(
-                            text: "Reset Password",
+                      Row(
+                        children: [
+                          TextThemedel(
+                            text: "Login",
                             color: ColorData.maincolor,
+                            fontSize: 25,
                             fontWeight: FontWeight.bold,
                           ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: MyApp.height * .002,
+                      ),
+                      Row(
+                        children: [
+                          TextThemedel(
+                            text: "Email ID",
+                            color: ColorData.textblackcolor,
+                            fontSize: 15,
+                          ),
+                        ],
+                      ),
+                      CommonTextField(
+                        controller: email,
+                        keyboardType: TextInputType.emailAddress,
+                      ),
+                      Row(
+                        children: [
+                          TextThemedel(
+                            text: "Password",
+                            color: ColorData.textblackcolor,
+                            fontSize: 15,
+                          ),
+                        ],
+                      ),
+                      Obx(
+                        () => CommonTextField(
+                          controller: password,
+                          isPassword: !controller.showpassword.value,
+                          suffixIcon: IconButton(
+                              onPressed: () {
+                                controller.togglepass();
+                              },
+                              icon: Icon(controller.showpassword.value
+                                  ? Icons.visibility_off
+                                  : Icons.visibility)),
                         ),
-                      ],
-                    )
-                  ],
-                ),
-              )
-            ],
+                      ),
+                      SizedBox(
+                        height: MyApp.height * .002,
+                      ),
+                      Row(
+                        children: [
+                          Obx(
+                            () => Checkbox(
+                              activeColor: ColorData.maincolor,
+                              value: controller.reemberme.value,
+                              onChanged: (value) {
+                                controller.togglerememberme();
+                              },
+                            ),
+                          ),
+                          TextThemedel(
+                            text: "Remember me",
+                            color: ColorData.maincolor,
+                          )
+                        ],
+                      ),
+                      CommonMaterialButton(
+                        width: double.infinity,
+                        height: MyApp.height * .06,
+                        borderRadius: BorderRadius.circular(5),
+                        onPressed: () {
+                          Fluttertoast.showToast(
+                              msg: "Login Success",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                          );
+                          Navi.toOff(Bottomsheet());
+                        },
+                        color: ColorData.maincolor,
+                        elevation: 5,
+                        child: TextThemedel(
+                          text: "Login",
+                          color: ColorData.whitecolor,
+                          fontSize: 20,
+                        ),
+                      ),
+                      SizedBox(
+                        height: MyApp.height * .03,
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          TextThemedel(
+                            text: "Forgot Password ? ",
+                            color: ColorData.maincolor,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navi.toOff(Forgotpassword());
+                            },
+                            child: TextThemedel(
+                              text: "Reset Password",
+                              color: ColorData.maincolor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

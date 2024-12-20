@@ -17,7 +17,7 @@ class siteassignment_detailsController extends GetxController {
   var selectedIndex = (-1).obs;
 
   // List of dropdown options
-  final options = ["Option 1", "Option 2", "Option 3"];
+  final options = ["Car Porch", "Auditorium"];
 
   var edit = true.obs;
 

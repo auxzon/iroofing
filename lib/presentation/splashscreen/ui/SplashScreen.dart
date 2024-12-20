@@ -10,13 +10,16 @@ class Splashscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(SplashscreenController());
-    return Scaffold(
-      body: Container(
-        height: MyApp.height,
-        width: MyApp.width,
-        decoration: BoxDecoration(
-            image: const DecorationImage(image: AssetImage("assets/logo.png")),
-            color: ColorData.maincolor),
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: Container(
+          height: MyApp.height,
+          width: MyApp.width,
+          decoration: BoxDecoration(
+              image: const DecorationImage(image: AssetImage("assets/logo.png")),
+              color: ColorData.maincolor),
+        ),
       ),
     );
   }

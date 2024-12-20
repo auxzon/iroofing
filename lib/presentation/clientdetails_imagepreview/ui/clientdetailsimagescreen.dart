@@ -18,85 +18,93 @@ class Clientdetailsimagescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorData.textblackcolor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: ColorData.maincolor,
-        title: Image.asset(
-          "assets/logo.png",
-          height: MyApp.height * .05,
-        ),
-        actions: [
-              IconButton(
-              onPressed: () {
-                Navi.toOff(NotificationScreen());
-              },
-              icon: Badge(
-                label: TextThemedel(text: "5"),
-                child: Icon(
-                  CupertinoIcons.bell_fill,
-                  color: ColorData.whitecolor,
-                ),
-              ))
-        ],
-      ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              IconButton(
-                onPressed: () {
-                  var controller = Get.put(BottomSheetcntroller());
-                  controller.sitevisitorfun(); // Set the profile observable to true
-                  Navi.to(Bottomsheet(),transition: Transition.leftToRight);
-                },
-                icon: Icon(Icons.arrow_back_ios,color: ColorData.whitecolor,),
-              ),
-              Spacer(),
-              Expanded(
-                child: TextThemedel(
-                  text: imagename ?? "Image Name",
-                  color: ColorData.whitecolor,
-                  fontSize: 20,
-                  textoverflow: TextOverflow.ellipsis,
-                ),
-              ),
-              Spacer(),
-            ],
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) {
+        var controller = Get.put(BottomSheetcntroller());
+        controller.sitevisitorfun(); // Set the profile observable to true
+        Navi.to(Bottomsheet(),transition: Transition.leftToRight);
+      },
+      child: Scaffold(
+        backgroundColor: ColorData.textblackcolor,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: ColorData.maincolor,
+          title: Image.asset(
+            "assets/logo.png",
+            height: MyApp.height * .05,
           ),
-          Expanded(
-            child: PhotoView(
-              imageProvider: NetworkImage(
-                image ??
-                    "https://plus.unsplash.com/premium_photo-1664305032567-2c460e29dec1?q=80&w=1968&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              ),
-              onTapUp: (context, details, controllerValue) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text("Image tapped!")),
-                );
-              },
-              enableRotation: true,
-              minScale: PhotoViewComputedScale.contained,
-              maxScale: PhotoViewComputedScale.covered * 3,
-              initialScale: PhotoViewComputedScale.contained * 1.0,
-              heroAttributes: const PhotoViewHeroAttributes(
-                tag: "photoHero",
-              ),
-              backgroundDecoration: BoxDecoration(
-                color: ColorData.textblackcolor,
-              ),
-              loadingBuilder: (context, progress) => Center(
-                child: CircularProgressIndicator(
-                  value: progress == null
-                      ? null
-                      : progress.cumulativeBytesLoaded /
-                          (progress.expectedTotalBytes ?? 1),
+          actions: [
+                IconButton(
+                onPressed: () {
+                  Navi.toOff(NotificationScreen());
+                },
+                icon: Badge(
+                  label: TextThemedel(text: "5"),
+                  child: Icon(
+                    CupertinoIcons.bell_fill,
+                    color: ColorData.whitecolor,
+                  ),
+                ))
+          ],
+        ),
+        body: Column(
+          children: [
+            Row(
+              children: [
+                IconButton(
+                  onPressed: () {
+                    var controller = Get.put(BottomSheetcntroller());
+                    controller.sitevisitorfun(); // Set the profile observable to true
+                    Navi.to(Bottomsheet(),transition: Transition.leftToRight);
+                  },
+                  icon: Icon(Icons.arrow_back_ios,color: ColorData.whitecolor,),
+                ),
+                Spacer(),
+                Expanded(
+                  child: TextThemedel(
+                    text: imagename ?? "Image Name",
+                    color: ColorData.whitecolor,
+                    fontSize: 20,
+                    textoverflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                Spacer(),
+              ],
+            ),
+            Expanded(
+              child: PhotoView(
+                imageProvider: NetworkImage(
+                  image ??
+                      "https://plus.unsplash.com/premium_photo-1664305032567-2c460e29dec1?q=80&w=1968&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                ),
+                onTapUp: (context, details, controllerValue) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Image tapped!")),
+                  );
+                },
+                enableRotation: true,
+                minScale: PhotoViewComputedScale.contained,
+                maxScale: PhotoViewComputedScale.covered * 3,
+                initialScale: PhotoViewComputedScale.contained * 1.0,
+                heroAttributes: const PhotoViewHeroAttributes(
+                  tag: "photoHero",
+                ),
+                backgroundDecoration: BoxDecoration(
+                  color: ColorData.textblackcolor,
+                ),
+                loadingBuilder: (context, progress) => Center(
+                  child: CircularProgressIndicator(
+                    value: progress == null
+                        ? null
+                        : progress.cumulativeBytesLoaded /
+                            (progress.expectedTotalBytes ?? 1),
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

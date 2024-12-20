@@ -31,575 +31,607 @@ class Estimationscreen extends StatelessWidget {
     var height = TextEditingController();
     var totalsqft = TextEditingController();
     var Total_Rate = TextEditingController();
-    return Scaffold(
-      backgroundColor: ColorData.bgcolor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: ColorData.maincolor,
-        title: Image.asset(
-          "assets/logo.png",
-          height: MyApp.height * .05,
-        ),
-        actions: [
-              IconButton(
-              onPressed: () {
-                Navi.toOff(NotificationScreen());
-              },
-              icon: Badge(
-                label: TextThemedel(text: "5"),
-                child: Icon(
-                  CupertinoIcons.bell_fill,
-                  color: ColorData.whitecolor,
-                ),
-              ))
-        ],
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: MyApp.width * .04),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: MyApp.height * .008,
-            ),
-            Row(
-              children: [
+    return PopScope(
+      onPopInvoked: (didPop) {
+        var controller = Get.put(BottomSheetcntroller());
+        controller
+            .sitevisitorfun(); // Set the profile observable to true
+        Navi.to(Bottomsheet(),transition: Transition.leftToRight);
+      },
+      canPop: false,
+      child: Scaffold(
+        backgroundColor: ColorData.bgcolor,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: ColorData.maincolor,
+          title: Image.asset(
+            "assets/logo.png",
+            height: MyApp.height * .05,
+          ),
+          actions: [
                 IconButton(
-                  onPressed: () {
-                    var controller = Get.put(BottomSheetcntroller());
-                    controller
-                        .sitevisitorfun(); // Set the profile observable to true
-                    Navi.to(Bottomsheet(),transition: Transition.leftToRight);
-                  },
-                  icon: Icon(Icons.arrow_back_ios),
-                ),
-                TextThemedel(
-                  text: "Create Estimation",
-                  color: ColorData.maincolor,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
-                Spacer(),
-              ],
-            ),
-            const Divider(),
-            SizedBox(
-              height: MyApp.height * .01,
-            ),
-            TextThemedel(
-              text: "Roof Type",
-              color: ColorData.textblackcolor,
-              fontWeight: FontWeight.bold,
-            ),
-            SizedBox(
-              height: MyApp.height * .008,
-            ),
-            CommonTextField(
-              focusborder: 5,
-              border: 5,
-              enableborder: 5,
-              controller: rooftype,
-            ),
-            SizedBox(
-              height: MyApp.height * .02,
-            ),
-            TextThemedel(
-              text: "Roof Model",
-              color: ColorData.textblackcolor,
-              fontWeight: FontWeight.bold,
-            ),
-            SizedBox(
-              height: MyApp.height * .01,
-            ),
-            CommonTextField(
-              controller: roofmodel,
-              focusborder: 5,
-              border: 5,
-              enableborder: 5,
-            ),
-            SizedBox(
-              height: MyApp.height * .02,
-            ),
-            TextThemedel(
-              text: "Roof Preference",
-              color: ColorData.textblackcolor,
-              fontWeight: FontWeight.bold,
-            ),
-            SizedBox(
-              height: MyApp.height * .01,
-            ),
-            CommonTextField(
-              controller: roofpreference,
-              focusborder: 5,
-              border: 5,
-              enableborder: 5,
-            ),
-            SizedBox(
-              height: MyApp.height * .02,
-            ),
-            TextThemedel(
-              text: "View Image",
-              color: ColorData.textblackcolor,
-              fontWeight: FontWeight.bold,
-            ),
-            SizedBox(
-              height: MyApp.height * .01,
-            ),
-            GestureDetector(
-              onTap: () {
-                Navi.toOff(Createestimateimagescreen());
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
+                onPressed: () {
+                  Navi.toOff(NotificationScreen());
+                },
+                icon: Badge(
+                  label: TextThemedel(text: "5"),
+                  child: Icon(
+                    CupertinoIcons.bell_fill,
                     color: ColorData.whitecolor,
-                    border: Border.all(color: ColorData.textfieldunfocuscolor)),
-                child: ListTile(
-                  leading: Icon(Icons.visibility),
-                  title: TextThemedel(
-                    text: "Click here to View",
-                    color: ColorData.textblackcolor,
+                  ),
+                ))
+          ],
+        ),
+        body: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: MyApp.width * .04),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: MyApp.height * .008,
+              ),
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      var controller = Get.put(BottomSheetcntroller());
+                      controller
+                          .sitevisitorfun(); // Set the profile observable to true
+                      Navi.to(Bottomsheet(),transition: Transition.leftToRight);
+                    },
+                    icon: Icon(Icons.arrow_back_ios),
+                  ),
+                  TextThemedel(
+                    text: "Create Estimation",
+                    color: ColorData.maincolor,
+                    fontSize: 25,
                     fontWeight: FontWeight.bold,
+                  ),
+                  Spacer(),
+                ],
+              ),
+              const Divider(),
+              SizedBox(
+                height: MyApp.height * .01,
+              ),
+              TextThemedel(
+                text: "Work Type",
+                color: ColorData.textblackcolor,
+                fontWeight: FontWeight.bold,
+              ),
+              SizedBox(
+                height: MyApp.height * .008,
+              ),
+              CommonTextField(
+                focusborder: 5,
+                border: 5,
+                enableborder: 5,
+                controller: rooftype,
+              ),
+              SizedBox(
+                height: MyApp.height * .02,
+              ),
+              TextThemedel(
+                text: "Work Model",
+                color: ColorData.textblackcolor,
+                fontWeight: FontWeight.bold,
+              ),
+              SizedBox(
+                height: MyApp.height * .01,
+              ),
+              CommonTextField(
+                controller: roofmodel,
+                focusborder: 5,
+                border: 5,
+                enableborder: 5,
+              ),
+              SizedBox(
+                height: MyApp.height * .02,
+              ),
+              TextThemedel(
+                text: "Work Preference",
+                color: ColorData.textblackcolor,
+                fontWeight: FontWeight.bold,
+              ),
+              SizedBox(
+                height: MyApp.height * .01,
+              ),
+              CommonTextField(
+                controller: roofpreference,
+                focusborder: 5,
+                border: 5,
+                enableborder: 5,
+              ),
+              SizedBox(
+                height: MyApp.height * .02,
+              ),
+              TextThemedel(
+                text: "View Image",
+                color: ColorData.textblackcolor,
+                fontWeight: FontWeight.bold,
+              ),
+              SizedBox(
+                height: MyApp.height * .01,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navi.toOff(Createestimateimagescreen());
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: ColorData.whitecolor,
+                      border: Border.all(color: ColorData.textfieldunfocuscolor)),
+                  child: ListTile(
+                    leading: Icon(Icons.visibility),
+                    title: TextThemedel(
+                      text: "Click here to View",
+                      color: ColorData.textblackcolor,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: MyApp.height * .04,
-            ),
-            Obx(
-              () => Container(
-                padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-                decoration: BoxDecoration(
-                  color: ColorData.whitecolor,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        TextThemedel(
-                          text: "Measurements",
-                          color: ColorData.maincolor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                        Spacer(),
-                        GestureDetector(
-                          onTap: () {
-                            controller.togglemeasurmentvalue();
-                          },
-                          child: controller.showmeasurment.value
-                              ? Icon(
-                                  Icons.keyboard_arrow_up,
-                                )
-                              : Icon(
-                                  Icons.keyboard_arrow_down,
-                                ),
-                        )
-                      ],
-                    ),
-                    Divider(),
-                    controller.showmeasurment.value
-                        ? Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Obx(() {
-                                    return Container(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 15),
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color:
-                                                ColorData.textfieldunfocuscolor,
-                                            width: 1.5),
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                      child: DropdownButtonHideUnderline(
-                                        child: DropdownButton<int>(
-                                          // Hint text displayed when no value is selected
-                                          hint: TextThemedel(
-                                            text: "Select Roof Preference",
-                                            color: ColorData.maincolor,
-                                          ),
-                                          value: controller
-                                                      .selectedIndex.value ==
-                                                  -1
-                                              ? null
-                                              : controller.selectedIndex.value,
-                                          items: List.generate(
-                                            controller.options.length,
-                                            (index) => DropdownMenuItem<int>(
-                                              value: index,
-                                              child: Text(
-                                                  controller.options[index]),
-                                            ),
-                                          ),
-                                          onChanged: (value) {
-                                            if (value != null) {
-                                              controller.selectedIndex.value =
-                                                  value;
-                                            }
-                                          },
-                                          icon:
-                                              const Icon(Icons.arrow_drop_down),
+              SizedBox(
+                height: MyApp.height * .04,
+              ),
+              Obx(
+                () => Container(
+                  padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: ColorData.whitecolor,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          TextThemedel(
+                            text: "Measurements",
+                            color: ColorData.maincolor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                          Spacer(),
+                          GestureDetector(
+                            onTap: () {
+                              controller.togglemeasurmentvalue();
+                            },
+                            child: controller.showmeasurment.value
+                                ? Icon(
+                                    Icons.keyboard_arrow_up,
+                                  )
+                                : Icon(
+                                    Icons.keyboard_arrow_down,
+                                  ),
+                          )
+                        ],
+                      ),
+                      Divider(),
+                      controller.showmeasurment.value
+                          ? Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Obx(() {
+                                      return Container(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 15),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color:
+                                                  ColorData.textfieldunfocuscolor,
+                                              width: 1.5),
+                                          borderRadius: BorderRadius.circular(8),
                                         ),
-                                      ),
-                                    );
-                                  })
-                                ],
-                              ),
-                              SizedBox(height: MyApp.height * .04),
-                              // Display selected index
-                              Obx(() {
-                                return ListView.builder(
-                                    physics: NeverScrollableScrollPhysics(),
-                                    shrinkWrap: true,
-                                    itemCount: controller.selectedIndex.value ==
-                                            (-1)
-                                        ? 0
-                                        : controller.selectedIndex.value + 1,
-                                    itemBuilder: (context, index) => Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: MyApp.width * .2,
-                                                  vertical:
-                                                      MyApp.height * .005),
-                                              decoration: BoxDecoration(
-                                                  color: ColorData.bgcolor,
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
-                                                  border: Border.all(
-                                                      color: ColorData
-                                                          .textfieldunfocuscolor)),
-                                              child: TextThemedel(
-                                                text: "Material",
-                                                color:
-                                                    ColorData.buttontextcolor,
+                                        child: DropdownButtonHideUnderline(
+                                          child: DropdownButton<int>(
+                                            // Hint text displayed when no value is selected
+                                            hint: TextThemedel(
+                                              text: "Select Parking Type",
+                                              color: ColorData.maincolor,
+                                            ),
+                                            value: controller
+                                                        .selectedIndex.value ==
+                                                    -1
+                                                ? null
+                                                : controller.selectedIndex.value,
+                                            items: List.generate(
+                                              controller.options.length,
+                                              (index) => DropdownMenuItem<int>(
+                                                value: index,
+                                                child: Text(
+                                                    controller.options[index]),
                                               ),
                                             ),
-                                            SizedBox(
-                                                height: MyApp.height * .02),
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                TextThemedel(
-                                                  text: "Span",
-                                                  color:
-                                                      ColorData.textblackcolor,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                                Spacer(),
-                                                Expanded(
-                                                    child: SizedBox(
-                                                  child: CommonTextField(
-                                                    maxLines: null,
-                                                    keyboardType:
-                                                        TextInputType.number,
-                                                    controller: span,
-                                                    contentpadding: 8,
-                                                    enableborder: 8,
-                                                    focusborder: 8,
+                                            onChanged: (value) {
+                                              if (value != null) {
+                                                controller.selectedIndex.value =
+                                                    value;
+                                              }
+                                            },
+                                            icon:
+                                                const Icon(Icons.arrow_drop_down),
+                                          ),
+                                        ),
+                                      );
+                                    })
+                                  ],
+                                ),
+                                SizedBox(height: MyApp.height * .04),
+                                // Display selected index
+                                Obx(() {
+                                  return ListView.builder(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      shrinkWrap: true,
+                                      itemCount: controller.selectedIndex.value ==
+                                              (-1)
+                                          ? 0
+                                          : controller.selectedIndex.value + 1,
+                                      itemBuilder: (context, index) => Column(
+                                            children: [
+                                              Align(
+                                                alignment:Alignment.centerLeft,
+                                                child: Container(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: MyApp.width * .2,
+                                                      vertical:
+                                                          MyApp.height * .005),
+                                                  decoration: BoxDecoration(
+                                                      color: ColorData.bgcolor,
+                                                      borderRadius:
+                                                          BorderRadius.circular(5),
+                                                      border: Border.all(
+                                                          color: ColorData
+                                                              .textfieldunfocuscolor)),
+                                                  child: TextThemedel(
+                                                    text: "Measurement",
+                                                    color:
+                                                        ColorData.buttontextcolor,
                                                   ),
-                                                  height: MyApp.height * .05,
-                                                )),
-                                                SizedBox(
-                                                  width: MyApp.width * .2,
                                                 ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                                height: MyApp.height * .01),
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                TextThemedel(
-                                                  text: "Length",
-                                                  color:
-                                                      ColorData.textblackcolor,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                                Spacer(),
-                                                Expanded(
-                                                  child: SizedBox(
-                                                    height: MyApp.height * .05,
+                                              ),
+                                              SizedBox(
+                                                  height: MyApp.height * .02),
+                                              Row(
+                                                children: [
+                                                  TextThemedel(
+                                                    text: "Span  ",
+                                                    color:
+                                                        ColorData.textblackcolor,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                  Spacer(),
+                                                  Expanded(
+                                                      child: SizedBox(
                                                     child: CommonTextField(
+                                                      useUnderlineBorder: true,
+                                                      maxLines: null,
                                                       keyboardType:
                                                           TextInputType.number,
-                                                      controller: length,
+                                                      controller: span,
                                                       contentpadding: 8,
                                                       enableborder: 8,
                                                       focusborder: 8,
-                                                      hintstyle: TextStyle(
-                                                          fontSize: 14),
+                                                    ),
+                                                    height: MyApp.height * .05,
+                                                  )),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                  height: MyApp.height * .01),
+                                              Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  TextThemedel(
+                                                    text: "Length",
+                                                    color:
+                                                        ColorData.textblackcolor,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                  Spacer(),
+                                                  Expanded(
+                                                    child: SizedBox(
+                                                      height: MyApp.height * .05,
+                                                      child: CommonTextField(
+                                                        useUnderlineBorder: true,
+                                                        keyboardType:
+                                                            TextInputType.number,
+                                                        controller: length,
+                                                        contentpadding: 8,
+                                                        enableborder: 8,
+                                                        focusborder: 8,
+                                                        hintstyle: TextStyle(
+                                                            fontSize: 14),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                                SizedBox(
-                                                  width: MyApp.width * .2,
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                                height: MyApp.height * .01),
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                TextThemedel(
-                                                  text: "Height",
-                                                  color:
-                                                      ColorData.textblackcolor,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                                Spacer(),
-                                                Expanded(
-                                                    child: SizedBox(
-                                                  child: CommonTextField(
-                                                    keyboardType:
-                                                        TextInputType.number,
-                                                    controller: height,
-                                                    contentpadding: 8,
-                                                    enableborder: 8,
-                                                    focusborder: 8,
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                  height: MyApp.height * .01),
+                                              Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  TextThemedel(
+                                                    text: "Height",
+                                                    color:
+                                                        ColorData.textblackcolor,
+                                                    fontWeight: FontWeight.bold,
                                                   ),
-                                                  height: MyApp.height * .05,
-                                                )),
-                                                SizedBox(
-                                                  width: MyApp.width * .2,
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                                height: MyApp.height * .01),
-                                          ],
-                                        ));
-                              }),
-                              SizedBox(height: MyApp.height * .02),
-                              CommonMaterialButton(
-                                onPressed: () {
-                                  controller.toggleestimtecard();
-                                },
-                                color: ColorData.maincolor,
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: MyApp.width * .06),
-                                child: TextThemedel(
-                                  text: "Create  estimate",
-                                  color: ColorData.whitecolor,
-                                  fontWeight: FontWeight.bold,
+                                                  Spacer(),
+                                                  Expanded(
+                                                      child: SizedBox(
+                                                    child: CommonTextField(
+                                                      useUnderlineBorder: true,
+                                                      keyboardType:
+                                                          TextInputType.number,
+                                                      controller: height,
+                                                      contentpadding: 8,
+                                                      enableborder: 8,
+                                                      focusborder: 8,
+                                                    ),
+                                                    height: MyApp.height * .05,
+                                                  )),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                  height: MyApp.height * .01),
+                                            ],
+                                          ));
+                                }),
+                                SizedBox(height: MyApp.height * .02),
+                                CommonMaterialButton(
+                                  onPressed: () {
+                                    controller.toggleestimtecard();
+                                  },
+                                  color: ColorData.maincolor,
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: MyApp.width * .06),
+                                  child: TextThemedel(
+                                    text: "Create  estimate",
+                                    color: ColorData.whitecolor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: MyApp.height * .02),
-                            ],
-                          )
-                        : SizedBox.shrink()
-                  ],
+                                SizedBox(height: MyApp.height * .02),
+                              ],
+                            )
+                          : SizedBox.shrink()
+                    ],
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: MyApp.height * .01,
-            ),
-            Obx(
-              () => controller.showestimatecard.value
-                  ? Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-                      decoration: BoxDecoration(
-                        color: ColorData.whitecolor,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              TextThemedel(
-                                text: "Estimation",
-                                color: ColorData.maincolor,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
-                              Spacer(),
-                              GestureDetector(
-                                onTap: () {},
-                                child: Icon(
-                                  Icons.delete,
-                                ),
-                              ),
-                              GestureDetector(
-                                  onTap: () {},
-                                  child: TextThemedel(text: "Delete")),
-                            ],
-                          ),
-                          Divider(),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              TextThemedel(
-                                text: "Total sq. ft",
-                                color: ColorData.textblackcolor,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              Spacer(),
-                              Expanded(
-                                  child: SizedBox(
-                                child: CommonTextField(
-                                  keyboardType: TextInputType.number,
-                                  controller: totalsqft,
-                                  contentpadding: 8,
-                                  enableborder: 8,
-                                  focusborder: 8,
-                                ),
-                                height: MyApp.height * .05,
-                              )),
-                              TextThemedel(
-                                text: " sq.ft",
-                                fontSize: 20,
-                              ),
-                              SizedBox(
-                                width: MyApp.width * .09,
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: MyApp.height * .01),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              TextThemedel(
-                                text: "Total Rate",
-                                color: ColorData.textblackcolor,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              Spacer(),
-                              TextThemedel(
-                                text: "₹ ",
-                                fontSize: 20,
-                              ),
-                              Expanded(
-                                  child: SizedBox(
-                                child: CommonTextField(
-                                  keyboardType: TextInputType.number,
-                                  controller: Total_Rate,
-                                  contentpadding: 8,
-                                  enableborder: 8,
-                                  focusborder: 8,
-                                ),
-                                height: MyApp.height * .05,
-                              )),
-                              SizedBox(
-                                width: MyApp.width * .2,
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: MyApp.height * .01),
-                          Center(
-                            child: RichText(
-                              text: TextSpan(
-                                text: "Please",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: ColorData.textfieldunfocuscolor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                children: [
-                                  TextSpan(
-                                    text: " ",
-                                  ),
-                                  TextSpan(
-                                    text: "Click here",
-                                    style: TextStyle(
-                                      color: ColorData.textbluecolor,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                    recognizer: TapGestureRecognizer()
-                                      ..onTap = () {
-                                        print("update"); // Action on click
-                                      },
-                                  ),
-                                  TextSpan(
-                                    text: " to update the status.",
-                                    style: TextStyle(
-                                      color: ColorData.textfieldunfocuscolor,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: MyApp.height * .01),
-                          Row(
-                            children: [
-                              TextThemedel(text: "Status"),
-                              SizedBox(width: MyApp.width * .05),
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 5),
-                                decoration: BoxDecoration(
-                                    color: ColorData.greebuttoncolorbg,
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: TextThemedel(
-                                  text: "Ongoing",
+              SizedBox(
+                height: MyApp.height * .01,
+              ),
+              Obx(
+                () => controller.showestimatecard.value
+                    ? Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                        decoration: BoxDecoration(
+                          color: ColorData.whitecolor,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                TextThemedel(
+                                  text: "Estimation",
+                                  color: ColorData.maincolor,
                                   fontWeight: FontWeight.bold,
-                                  color: ColorData.greebuttoncolor,
+                                  fontSize: 20,
                                 ),
-                              ),
-                              Spacer(),
-                            ],
-                          ),
-                          SizedBox(height: MyApp.height * .01),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    border: Border.all(
-                                        color: ColorData.textfieldunfocuscolor,
-                                        width: 1)),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                Spacer(),
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: Icon(
+                                    Icons.delete,
+                                  ),
+                                ),
+                                GestureDetector(
+                                    onTap: () {},
+                                    child: TextThemedel(text: "Delete")),
+                              ],
+                            ),
+                            Divider(),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                TextThemedel(
+                                  text: "Total sq. ft",
+                                  color: ColorData.textblackcolor,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                Spacer(),
+                                Expanded(
+                                    child: SizedBox(
+                                  child: CommonTextField(
+                                    keyboardType: TextInputType.number,
+                                    controller: totalsqft,
+                                    contentpadding: 8,
+                                    enableborder: 8,
+                                    focusborder: 8,
+                                  ),
+                                  height: MyApp.height * .05,
+                                )),
+                                TextThemedel(
+                                  text: " sq.ft",
+                                  fontSize: 20,
+                                ),
+                                SizedBox(
+                                  width: MyApp.width * .09,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: MyApp.height * .01),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                TextThemedel(
+                                  text: "Total Rate",
+                                  color: ColorData.textblackcolor,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                Spacer(),
+                                TextThemedel(
+                                  text: "₹ ",
+                                  fontSize: 20,
+                                ),
+                                Expanded(
+                                    child: SizedBox(
+                                  child: CommonTextField(
+                                    keyboardType: TextInputType.number,
+                                    controller: Total_Rate,
+                                    contentpadding: 8,
+                                    enableborder: 8,
+                                    focusborder: 8,
+                                  ),
+                                  height: MyApp.height * .05,
+                                )),
+                                SizedBox(
+                                  width: MyApp.width * .2,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: MyApp.height * .01),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                TextThemedel(
+                                  text: " Sq.ft Rate ",
+                                  color: ColorData.textblackcolor,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                Spacer(),
+                                TextThemedel(
+                                  text: "₹ ",
+                                  fontSize: 20,
+                                ),
+                                Expanded(
+                                    child: SizedBox(
+                                      child: CommonTextField(
+                                        keyboardType: TextInputType.number,
+                                        controller: Total_Rate,
+                                        contentpadding: 8,
+                                        enableborder: 8,
+                                        focusborder: 8,
+                                      ),
+                                      height: MyApp.height * .05,
+                                    )),
+                                SizedBox(
+                                  width: MyApp.width * .2,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: MyApp.height * .01),
+                            Center(
+                              child: RichText(
+                                text: TextSpan(
+                                  text: "Please",
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: ColorData.textfieldunfocuscolor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                   children: [
-                                    Icon(CupertinoIcons.share),
-                                    TextThemedel(text: "Export")
+                                    TextSpan(
+                                      text: " ",
+                                    ),
+                                    TextSpan(
+                                      text: "Click here",
+                                      style: TextStyle(
+                                        color: ColorData.textbluecolor,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                      recognizer: TapGestureRecognizer()
+                                        ..onTap = () {
+                                          print("update"); // Action on click
+                                        },
+                                    ),
+                                    TextSpan(
+                                      text: " to update the status.",
+                                      style: TextStyle(
+                                        color: ColorData.textfieldunfocuscolor,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
-                              SizedBox(width: MyApp.width * .02),
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    border: Border.all(
-                                        color: ColorData.textfieldunfocuscolor,
-                                        width: 1)),
-                                child: Icon(
-                                  Icons.share,
-                                  color: ColorData.textfieldunfocuscolor,
+                            ),
+                            SizedBox(height: MyApp.height * .01),
+                            Row(
+                              children: [
+                                TextThemedel(text: "Status"),
+                                SizedBox(width: MyApp.width * .05),
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 5),
+                                  decoration: BoxDecoration(
+                                      color: ColorData.greebuttoncolorbg,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: TextThemedel(
+                                    text: "Ongoing",
+                                    fontWeight: FontWeight.bold,
+                                    color: ColorData.greebuttoncolor,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: MyApp.height * .02),
-                        ],
-                      ),
-                    )
-                  : SizedBox.shrink(),
-            ),
-            SizedBox(
-              height: MyApp.height * .01,
-            ),
-          ],
+                                Spacer(),
+                              ],
+                            ),
+                            SizedBox(height: MyApp.height * .01),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      border: Border.all(
+                                          color: ColorData.textfieldunfocuscolor,
+                                          width: 1)),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(CupertinoIcons.share),
+                                      TextThemedel(text: "Export")
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(width: MyApp.width * .02),
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 5, horizontal: 10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      border: Border.all(
+                                          color: ColorData.textfieldunfocuscolor,
+                                          width: 1)),
+                                  child: Icon(
+                                    Icons.share,
+                                    color: ColorData.textfieldunfocuscolor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: MyApp.height * .02),
+                          ],
+                        ),
+                      )
+                    : SizedBox.shrink(),
+              ),
+              SizedBox(
+                height: MyApp.height * .01,
+              ),
+            ],
+          ),
         ),
       ),
     );

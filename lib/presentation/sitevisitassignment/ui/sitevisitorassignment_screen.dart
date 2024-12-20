@@ -149,7 +149,7 @@ class SitevisitorassignmentScreen extends StatelessWidget {
                         // ),
                         CommonMaterialButton(
                           onPressed: () {
-                            Navi.toOff(SiteassignmentDetails());
+                            Navi.toOff(SiteassignmentDetails(tohome: false,));
                           },
                           width: MyApp.width * .4,
                           elevation: 10,

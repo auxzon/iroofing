@@ -302,6 +302,10 @@ class Ongoingassignmentscreen extends StatelessWidget {
                                           subtitle: "₹57800/-",
                                           Icons: Icons.currency_rupee),
                                       ClientInfoCard(
+                                          title: "Sq Ft rate",
+                                          subtitle: "₹570/-",
+                                          Icons: Icons.currency_rupee),
+                                      ClientInfoCard(
                                           title: "Site Visited ",
                                           subtitle: "20-08-2024",
                                           Icons: Icons.calendar_month),
